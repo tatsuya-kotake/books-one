@@ -1,6 +1,5 @@
-<div>
+<h1>書評</h1>  
   <% @reviews.each do |review| %>
-  
-  <%= review.content %>
+    <ul><%= link_to(review.content,"/reviews/#{review.id}") %></ul>
   <% end %>
-</div>
+
