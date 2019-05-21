@@ -1,1 +1,30 @@
-<ul><%= @reviews.content %></ul>
+<div class="main show">
+    <div class="container">
+      <div class="reviews-show-item">
+        
+        <div class="review">
+            <img src=<% %>>
+            <div class="content_title">
+              <ul>まとめタイトル：<%= @review.content_title %></ul>
+            </div>
+            <div class="content">
+              <ul>まとめ：<%= @review.content %></ul>
+            </div>
+        </div>
+        
+        <div class="review-tab">
+          <div class="destroy-button">
+            <%=link_to("/reviews/#{@review.id}/destroy" ,{method: "post"}) do %>
+               <button type="button" class="btn btn-danger" >削除</button>
+            <% end %>
+          </div>
+          <div class="edit-button">
+            <%=link_to("/reviews/#{@review.id}/edit") do %>
+                <button type="button" class="btn btn-light" >編集</button>
+            <% end %>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+</div>

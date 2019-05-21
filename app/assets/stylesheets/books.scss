@@ -1,0 +1,21 @@
+/*書籍表示パネル==============*/
+
+.book-result {
+  width:100%;
+  
+}
+.book .panel {
+  width:180px;
+  margin: 20px auto;
+}
+
+.book .panel-heading {
+  height: 220px;
+}
+
+.panel-body {
+  height : 40px;
+  padding: 2px 0px;
+  text-align: center;
+  font-size: 13px;
+}

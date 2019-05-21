@@ -1,0 +1,17 @@
+<div class="main">
+  <div class="container">
+        <div class="panel panel-default">
+          <div class="panel-heading text-center">
+            <img src="<%= @book.img_url %>" alt="" >
+          </div>
+          <div class="panel-body">
+            <p class="book-title"><%= @book.title %></p>
+          </div>
+        </div>
+        
+        <%= link_to(books_create_path(:isbn => @book.isbn),{method: :post}) do %>
+          <button type="button" class="btn btn-danger">登録</button>
+        <% end %>
+
+  </div>
+</div>

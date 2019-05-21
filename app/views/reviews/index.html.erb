@@ -1,5 +1,14 @@
-<h1>書評</h1>  
-  <% @reviews.each do |review| %>
-    <ul><%= link_to(review.content,"/reviews/#{review.id}") %></ul>
-  <% end %>
+<div class="main index"> 
+  <div class="container">
+    <h1>書評</h1>
+    
+      <% @reviews.each do |review| %>
+        <div class="index-item">
+          <ul><%= link_to("#{review.content_title}","/reviews/#{review.id}") %></ul>
+        </div>
+      <% end %>
+    
+  </div>
+</div>
+
 

@@ -1,0 +1,27 @@
+<div class="main">
+  
+  
+
+    <div class="row">
+      
+      <% @books.each do |book| %>
+      <div class="book">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+          <div class="panel panel-default"> 
+            <div class="panel-heading text-center">
+              <img src="<%= book.img_url %>" alt="" >
+            </div>
+            <div class="panel-body">
+               <% if book.reviewed_id %>
+                 <p class="book-title"><%= link_to("書評","/reviews/#{book.reviewed_id}") %></p>
+               <% else %>
+                 <p class="book-title"><%= link_to("書評を書く","/reviews/new") %></p>
+               <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+     <% end %>
+     
+    </div>
+</div>
