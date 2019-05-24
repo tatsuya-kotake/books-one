@@ -14,11 +14,15 @@
 
   <body>
     <% if flash[:notice] %>
-      <div class="flash">
+      <div class="flash-notice">
         <%= flash[:notice] %>
       </div>  
     <% end %>
-    
+    <% if flash[:danger] %>
+      <div class="flash-danger">
+        <%= flash[:danger] %>
+      </div>
+    <% end %>
     <%= render 'layouts/navbar' %>
     
     <%= yield %>

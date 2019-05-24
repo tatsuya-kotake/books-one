@@ -1,17 +1,19 @@
 <div class="main">
   <div class="container">
+    <div class="book-new">
         <div class="panel panel-default">
           <div class="panel-heading text-center">
             <img src="<%= @book.img_url %>" alt="" >
           </div>
           <div class="panel-body">
-            <p class="book-title"><%= @book.title %></p>
+            <p class="book-title">著書名 :<%= @book.title %></p>
+            <p class="book-title">著者名 :<%= @book.author %></p>
+            <p class="book-title">出版社 :<%= @book.publisher %></p>
           </div>
         </div>
-        
-        <%= link_to(books_create_path(:isbn => @book.isbn),{method: :post}) do %>
-          <button type="button" class="btn btn-danger">登録</button>
-        <% end %>
-
+          <%= link_to("/books/#{@book.isbn}/create",:method => :post) do %>
+            <button type="button" class="btn btn-info" >登録</button>
+          <% end %>
+    </div>
   </div>
 </div>

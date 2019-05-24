@@ -27,6 +27,11 @@ class BooksController < ApplicationController
     @book = Book.new(read(bookresult.first))
   end
   
+  def show
+    @book = Book.find_by(id: params[:id])
+    @review = Review.find_by(id: @book.reviewed_id)
+  end
+  
   def create
     bookresult = RakutenWebService::Books::Book.search(isbn: params[:isbn])
     @book = Book.new(read(bookresult.first))
@@ -37,6 +42,16 @@ class BooksController < ApplicationController
     
     redirect_to("/books/index")
   end 
+  
+  def destroy
+    @book = Book.find_by(isbn: params[:isbn])
+    @book.destroy
+    if @book.destroy
+      flash[:notice]="本を本棚から解除しました"
+      redirect_to("/books/index")
+    end
+  end
+  
 
   private
 

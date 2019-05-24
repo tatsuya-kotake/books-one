@@ -1,31 +1,36 @@
-<div class="main new">
+<div class="main">
     <div class="container">
-    <h1>新規作成</h1>
-      
-    <% @review.errors.full_messages.each do |message| %>
-        <%= message %>
-    <% end %>
-    
-    
-    <div class="form">
-      <%= form_tag("/reviews/create") do %>
-      
-        <label for>まとめタイトル</label>
-        <textarea name="content_title" class="form-control"　row="1"><%= @review.content_title %></textarea>
-        
-        <label for>まとめ本文</label>
-        <textarea name="content" class="form-control"　row="8"><%= @review.content %></textarea>
-        
-        <label for>Book_id</label>
-        <textarea name="book_id" class="form-control"　row="8"><%= @review.content %></textarea>
-        
-        <div class="create-button">
-          <input type="submit" value="作成" button type="button" class="btn btn-primary" ></button>
+      <div class="book-show">
+        <div class="book_img">
+          <img src=<%= @book.img_url %> alt="本の画像">
         </div>
-      <% end %>
-    </div>
+        <div class="book_info">
+          <h3><%= @book.title %></h3>
+            <ul>著者:<%= @book.author %></ul>
+            <ul>出版:<%= @book.publisher %></ul>
+        </div>
+      </div>
+      <div class="destroy-btn">
+        <%= link_to("/books/#{@book.isbn}/destroy", :method => :post) do %>
+        <button class="btn btn-danger">本の解除</button>
+        <% end %>
+      </div>
       
-    </div>
-    
+      <div class="review">
+        
+        <%= form_tag("/reviews/#{@book.id}/create") do %>
+        
+          <ul>まとめタイトル</ul>
+          <input name="content_title" class="review-content_title" ><%= @review.content_title %>
+          
+          <ul>まとめ本文</ul>
+          <textarea name="content" class="review-content"><%= @review.content %></textarea>
+          
+          <div class="create-button">
+            <input type="submit" value="作成" button type="button" class="btn btn-primary" ></button>
+          </div>
+        <% end %>
+        
+      </div>
     </div>
 </div>

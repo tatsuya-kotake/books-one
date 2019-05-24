@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
   
   def new
     @review = Review.new
+    @book = Book.find_by(id: params[:book_id])
   end
   
   def create
@@ -16,34 +17,39 @@ class ReviewsController < ApplicationController
     
     if @review.save
       flash[:notice] ="まとめを作成しました!!" 
-      redirect_to("/reviews/index") 
+      redirect_to("/books/#{@review.book_id}") 
     else
-      render("reviews/new")
+      flash[:danger] ="まとめを作成できませんでした"
+      redirect_to("/reviews/#{params[:book_id]}/new")
     end
   end
   
   def destroy
     @review = Review.find_by(id: params[:id])
-    
+    @book_id = @review.book_id
+     
     if @review.destroy
       flash[:notice]="まとめを削除しました"
     end
-    redirect_to("/reviews/index") 
+      redirect_to("/books/index")
   end
   
   def edit
-    @review = Review.find_by(id: params[:id])
+    @book = Book.find_by(id: params[:book_id])
+    @review = Review.find_by(book_id: params[:book_id])
   end 
   
   def update
-    @review = Review.find_by(id: params[:id])
+    @review = Review.find_by(book_id: params[:book_id])
     @review.update(content_title: params[:content_title], content: params[:content])
     
     if @review.save
       flash[:notice] = "編集しました"
-      redirect_to("/reviews/index")
+      redirect_to("/books/index")
     else
-      render("reviews/edit")
+      flash[:danger] = "編集できませんでした"
+      redirect_to("/reviews/#{params[:book_id]}/edit")
     end
   end
+  
 end

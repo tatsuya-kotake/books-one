@@ -1,17 +1,31 @@
 <div class="main edit">
-  <%= form_tag("/reviews/#{params[:id]}/update") do %>
-  
-  <% @review.errors.full_messages.each do |message| %>
-      <%= message %>
-  <% end %>
-  
-  
-    <label for>まとめタイトル</label>
-    <textarea name="content_title" class="form-control"　row="1"><%=@review.content_title %></textarea>
-  
-    <label for>まとめ本文</label>
-    <textarea name="content" class="form-control"　row="8"><%=@review.content%></textarea>
-    
-    <input type="submit" value="作成" button type="button" class="btn btn-primary" ></button>
-  <% end %>
+    <div class="container">
+      <div class="book-show">
+        <div class="book_img">
+          <img src="<%= @book.img_url %>" alt="本の画像">
+        </div>
+        <div class="book_info">
+          <h3><%= @book.title %></h3>
+            <ul>著者:<%= @book.author %></ul>
+            <ul>出版:<%= @book.publisher %></ul>
+        </div>
+      </div>
+
+      <div class="review">
+        
+        <%= form_tag("/reviews/#{@book.id}/update") do %>
+        
+          <ul>まとめタイトル</ul>
+          <input name="content_title" class="review-content_title" value=<%= @review.content_title%>>
+          
+          <ul>まとめ本文</ul>
+          <textarea name="content" class="review-content"><%= @review.content %></textarea>
+          
+          <div class="create-button">
+            <input type="submit" value="更新" button type="button" class="btn btn-info" ></button>
+          </div>
+        <% end %>
+        
+      </div>
+    </div>
 </div>
