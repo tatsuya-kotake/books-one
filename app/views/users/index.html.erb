@@ -1,0 +1,26 @@
+<div class="main ">
+  <div class="container">
+    <h2 class="users-heading">ユーザー一覧</h2>
+    <% @users.each do |user| %>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="users-index-item">
+          <div class="user-left">
+            <img src="<%= "/user_image/#{user.image_name}" %>">
+          </div>
+          <div class="user-right">
+            <%= link_to(user.name, "/users/#{user.id}") %>
+          </div>
+          <div class="user-about">
+            <li>登録した本の数: <%= user.books.count %></li>
+            <li>作成したまとめの数: <%= user.reviews.count %></li>
+          </div> 
+        </div>
+
+      </div> 
+    </div>
+
+      
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="main">
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">
+        <img src="<%= @book.img_url %>" alt="" >
+      </div>
+      <div class="panel-body">
+        <p class="book-title">著書名 :<%= @book.title %></p>
+        <p class="book-title">著者名 :<%= @book.author %></p>
+        <p class="book-title">出版社 :<%= @book.publisher %></p>
+      </div>
+    </div>  
+    
+  <% @books.each do |book| %>
+    <% review = Review.find_by(user_id: book.user_id) %>
+    
+    <div class="review-index">
+      <div class="review-user">
+        <div class="user-left">
+          <img src="<%= "/user_image/#{book.user.image_name}" %>">
+        </div>
+        
+        <div class="user-right">
+          <%= link_to("#{book.user.name}", "/users/#{book.user.id}") %>
+        </div>
+      </div>
+      <div class="review">
+        <ul>まとめタイトル</ul>
+          <div class="review-content_title">
+              <ul><%= review.content_title %></ul>
+          </div>
+        <ul>まとめ</ul>
+          <div class="review-content">
+            <ul><%= review.content %></ul>
+          </div>
+      </div>
+    </div>
+  <% end %>
+
+  </div>
+</div>

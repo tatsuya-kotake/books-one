@@ -1,38 +1,33 @@
 <div class="main">
-    <div class="container">
-          <div class="book-show">
-              <div class="book_img">
-                <img src=<%= @book.img_url %> alt="本の画像">
-              </div>
-              <div class="book_info">
-                  <h3><%= @book.title %></h3>
-                  <ul>著者:<%= @book.author %></ul>
-                  <ul>出版:<%= @book.publisher %></ul>
-              </div>
-          </div>
-          <div class="review-show">
-            
-            <ul>まとめタイトル</ul>
-              <div class="review-content_title">
-                  <ul><%= @review.content_title %></ul>
-              </div>
-            <ul>まとめ</ul>
-              <div class="review-content">
-                <ul><%= @review.content %></ul>
-              </div>
-          </div>
-          <div class="review-tab">
-            <div class="destroy-button">
-              <%=link_to("/reviews/#{@review.id}/destroy" ,{method: "post"}) do %>
-                 <button type="button" class="btn btn-danger" >削除</button>
-              <% end %>
-            </div>
-            <div class="edit-button">
-              <%=link_to("/reviews/#{@review.book_id}/edit") do %>
-                  <button type="button" class="btn btn-light" >編集</button>
-              <% end %>
-              
-            </div>
-          </div>
+  <div class="container">
+    <div class="book-show">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          <img src="<%= @book.img_url %>" alt="" >
+        </div>
+        <div class="panel-body text-center">
+          <p class="book-title">著書名 :<%= @book.title %></p>
+          <p class="book-title">著者名 :<%= @book.author %></p>
+          <p class="book-title">出版社 :<%= @book.publisher %></p>
+        </div>
+      </div>
+
+      <% if @current_user.id == @book.user_id %>
+        <div class="btn-tab">
+
+            <%=link_to("/books/#{@book.id}/destroy", :method => :post) do %>
+              <button type="button" class="btn btn-danger" >本棚から解除する</button>
+            <% end %>
+
+
+            <%=link_to("/reviews/#{@book.id}/new") do %>
+              <button type="button" class="btn btn-info" >まとめを作成する</button>
+            <% end %>
+
+        </div>
+      <% end %>
+      
     </div>
+  </div>
 </div>
+        

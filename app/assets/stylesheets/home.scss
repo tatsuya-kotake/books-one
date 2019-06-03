@@ -97,16 +97,48 @@ header {
 
 /* top============================================ */
 
-.top-message {
-  margin-top: 50px ;
-  margin-left: 40px;
-  margin-right: 800px;
-  padding: 10px 10px 80px 50px;
+.top-main {
+  background-image: url("/top6.jpg");
+  
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: cover;
   background-color:white;
 }
 
+/*
+.top-message {
+  margin-top: 40px ;
+  margin-left: 800px;
+  margin-right: 40px;
+  padding: 10px 10px 80px 50px;
+  background-color:white;
+  border-radius: 5px;
+  box-shadow: 0 0 8px #bac0c4;
+}
+
+
 .top-message h2 {
   font-size: 80px;
+}
+
+.top-message p {
+  font-size: 20px;
+}
+*/
+
+.top-message {
+  margin-top: 80px ;
+  margin-left: 65%;
+  margin-right: 40px;
+  padding: 10px 10px 80px 50px;
+  color: white;
+}
+
+
+.top-message h2 {
+  font-size: 80px;
+  color :white;
 }
 
 .top-message p {

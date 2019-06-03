@@ -1,0 +1,37 @@
+<div class="main user-show">
+  <div class="container">
+    <div class="user">
+      <img src="<%= "/user_image/#{@user.image_name}" %>">
+      <h2><%= @user.name %></h2>
+      <p><%= @user.email %></p>
+    </div>
+    
+    <% if @current_user.id == @user.id %>
+    
+          <%=link_to("/users/#{@user.id}/edit") do %>
+            <button type="button", class="btn btn-info" >編集</button>
+          <% end %>
+          
+    <% else %>  
+    
+    <div class="books">
+      <% @books.each do |book| %>
+        <div class="book-index">
+          <% if book.reviewed_id %>
+            <%= link_to ("/reviews/#{book.reviewed_id}") do %> 
+            <img src="<%= book.img_url %>" alt="" >
+            <% end %>
+          <% else %>
+            <%= link_to ("/books/#{book.id}") do %>
+            <img src="<%= book.img_url %>" alt="" >
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    
+    <% end %>
+    
+  </div>
+</div>
+

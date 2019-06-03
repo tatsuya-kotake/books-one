@@ -37,15 +37,32 @@
 
 /*books/new=================== */
 
+.book-new {
+  width: 40%;
+  margin: 0 auto;
+  padding: auto
+}
+
 .book-new .panel-default {
 
   margin: 20px 0px;
   padding: 0px;
 }
 
-.book-new .panel-body {
+.panel-body {
   padding: 10px auto;
   text-align: center;
   font-size: 15px;
 }
 
+.book-new .btn-tab {
+  width: 200px;
+  margin: 0 auto;
+}
+
+/*books/show=================== */
+
+.book-show .btn-tab {
+  width: 300px;
+  margin: 0 auto;
+}

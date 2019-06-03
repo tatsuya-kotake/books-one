@@ -3,15 +3,15 @@
     <% @books.each do |book| %>
       <div class="book-index">
           
-              <% if book.reviewed_id %>
-                <%= link_to ("/books/#{book.id}") do %> 
-                <img src="<%= book.img_url %>" alt="" >
-                <% end %>
-              <% else %>
-                <%= link_to ("/reviews/#{book.id}/new") do %>
-                <img src="<%= book.img_url %>" alt="" >
-                <% end %>
-              <% end %>
+        <% if book.reviewed_id %>
+          <%= link_to ("/reviews/#{book.reviewed_id}") do %> 
+          <img src="<%= book.img_url %>" alt="" >
+          <% end %>
+        <% else %>
+          <%= link_to ("/books/#{book.id}") do %>
+          <img src="<%= book.img_url %>" alt="" >
+          <% end %>
+        <% end %>
 
       </div>
     <% end %>

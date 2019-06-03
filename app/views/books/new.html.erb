@@ -11,9 +11,18 @@
             <p class="book-title">出版社 :<%= @book.publisher %></p>
           </div>
         </div>
-          <%= link_to("/books/#{@book.isbn}/create",:method => :post) do %>
-            <button type="button" class="btn btn-info" >登録</button>
-          <% end %>
+
+        <div class="btn-tab">
+         <%= link_to("/books/#{@book.isbn}/create",:method => :post) do %>
+           <button type="button" class="btn btn-info">本棚に登録</button>
+         <% end %>   
+  
+         <%= link_to("/reviews/#{@book.isbn}/index") do %>
+           <button type="button" class="btn btn-info">書評を見る</button>
+         <% end %>   
+        </div>
     </div>
+          
   </div>
 </div>
+      

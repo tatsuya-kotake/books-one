@@ -8,6 +8,25 @@
   box-shadow: 0 2px 6px #c1ced7;
 }
 
+.review-index {
+  margin: 10px 0;
+  padding: 20px 30px;
+  background-color: white;
+  box-shadow: 0 2px 6px #c1ced7;
+  width: 100%;
+}
+
+.review-user {
+  width: 10%;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  padding: 10px 10px;
+  display: table;
+}
+
+.review-index .review {
+  margin: 10px 0;
+}
 
 /* reviews/:book_id/new ================================= */
 
@@ -20,12 +39,24 @@
   margin: -65px 32px 0 0;
   float: right;
   z-index: 1;
-
 }
 
+/* reviews/:book_id/edit ================================= */
 
+.update-button .btn {
+  float: right;
 
-/*books/:id/=====================================*/
+  
+}
+.destroy-button .btn {
+  margin-right: 10px;
+  float: right;
+  border: none;
+
+  
+}
+
+/*reviews/:id/=====================================*/
 
 .review-content {
   width: 100%;
@@ -37,6 +68,7 @@
   border-radius: 5px;
   border: solid 1px #a2b6c4;
 }
+
 
 .review-content_title {
   width: 100%;
@@ -67,13 +99,8 @@
   padding-right: 5px;
 }
 
-.destroy-button {
-  margin: 0;
-  float: right;
-  
-}
 
-.book-show , .review-new-form{
+.book-show {
   margin-bottom: 30px;
 }
 
@@ -88,12 +115,6 @@
   margin: 0px 0px 0px 10px;
 }
 
-.book-new {
-  width: 40%;
-  margin: 0 auto;
-  padding: auto
-}
-
-.book-new .btn {
+.other-review-button {
   float: right;
 }

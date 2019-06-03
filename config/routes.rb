@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
   
-  get "reviews/index" => "reviews#index"
+  get "/login" => "users#login_form"
+  get "/logout" => "users#logout"
+  get "users/index" => "users#index"
+  get "users/new" => "users#new"
+  get "users/:id/edit" => "users#edit"
+  get "users/:id" => "users#show"
+  post "/login" => "users#login"
+  post "users/create" => "users#create"
+  post "users/:id/update" => "users#update"
+  post "users/:id/destroy" => "users#destroy"
+  
+  get "reviews/:isbn/index" => "reviews#index"
   get "reviews/:book_id/new" => "reviews#new"
   post "reviews/:book_id/create" => "reviews#create"
   post "reviews/:id/destroy" => "reviews#destroy"
@@ -9,12 +20,12 @@ Rails.application.routes.draw do
   post "reviews/:book_id/update" => "reviews#update"
   
   
-  get "books/index" => "books#index"
+  get "books/:user_id/index" => "books#index"
   get "books/search" => "books#search"
   get "books/new" => "books#new"
   
   post "books/:isbn/create" => "books#create"
-  post "books/:isbn/destroy" => "books#destroy"
+  post "books/:id/destroy" => "books#destroy"
   
   get "books/:id" => "books#show"
   

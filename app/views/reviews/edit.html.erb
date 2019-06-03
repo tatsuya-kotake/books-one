@@ -21,10 +21,16 @@
           <ul>まとめ本文</ul>
           <textarea name="content" class="review-content"><%= @review.content %></textarea>
           
-          <div class="create-button">
-            <input type="submit" value="更新" button type="button" class="btn btn-info" ></button>
+          <div class="update-button">
+            <input type="submit" value="更新" button type="button" class="btn btn-info btn-sm" ></button>
           </div>
         <% end %>
+        
+        <div class="destroy-button">
+          <%=link_to("/reviews/#{@review.id}/destroy" ,{method: "post"}) do %>
+             <button type="button" class="btn btn-danger btn-sm" >削除</button>
+          <% end %>
+      　</div>
         
       </div>
     </div>

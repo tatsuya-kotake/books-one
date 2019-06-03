@@ -2,8 +2,19 @@
     <div class="header-logo">
         <%= link_to("Books One","/") %>
     </div>
+    <% if @current_user %>
     <ul class="header-menus">
-      <li><%= link_to("本の一覧","/books/index")%></li>
+      <li><%= link_to("ログアウト","/logout")%></li>
+      <li><%= link_to("本棚","/books/#{@current_user.id}/index")%></li>
       <li><%= link_to("本を検索","/books/search")%></li>
+      <li><%= link_to("他のユーザー","/users/index")%></li>
+      <li><%= link_to("#{@current_user.name}","/users/#{@current_user.id}")%></li>
     </ul>
+    <% else %>
+    <ul class="header-menus">
+      <li><%= link_to("ユーザー登録","/users/new")%></li>
+      <li><%= link_to("ログイン","/login")%></li>
+    </ul>
+    <% end %>
 </header>
+

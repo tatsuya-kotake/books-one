@@ -1,0 +1,45 @@
+<div class="main">
+  <div class="container">
+    <div class="">
+      <div class="row">
+        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+          <%= form_tag("/users/#{@user.id}/update" ,{multipart: true}) do %>
+            <div class="form-group">
+              <label>ユーザー名</label>
+              <input name="name" class="form-control" value="<%= @user.name %>">
+            </div>
+            <div class="form-group">
+              <label>email</label>
+              <input name="email" class="form-control" value="<%= @user.email %>">
+            </div>
+
+            <div class="form-group">
+              <label>ユーザー画像</label>
+              <input name="image_name" type="file" >
+            </div>
+
+            <div class="form-group">
+              <label>パスワード</label>
+              <input name="password" class="form-control">
+            </div>
+            <div class="user-edit-button">
+              <%= submit_tag '更新', class:'btn btn-info' %>
+            </div>
+            
+          <% end %> 
+          
+          <div class="form-group">
+            <label>ユーザーアカウント削除</label>
+            <div class="user-destroy-button">
+              <%=link_to("/users/#{@user.id}/destroy", method: :post) do %>
+              <button type="button", class="btn btn-danger" >削除</button>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>
+

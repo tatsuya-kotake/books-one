@@ -10,12 +10,7 @@
             <ul>出版:<%= @book.publisher %></ul>
         </div>
       </div>
-      <div class="destroy-btn">
-        <%= link_to("/books/#{@book.isbn}/destroy", :method => :post) do %>
-        <button class="btn btn-danger">本の解除</button>
-        <% end %>
-      </div>
-      
+  
       <div class="review">
         
         <%= form_tag("/reviews/#{@book.id}/create") do %>
@@ -27,7 +22,7 @@
           <textarea name="content" class="review-content"><%= @review.content %></textarea>
           
           <div class="create-button">
-            <input type="submit" value="作成" button type="button" class="btn btn-primary" ></button>
+            <input type="submit" value="作成" button type="button" class="btn btn-info" ></button>
           </div>
         <% end %>
         
