@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end 
   
   def new
+    @user = User.new
   end
   
   def create
@@ -25,6 +26,8 @@ class UsersController < ApplicationController
       flash[:notice] = "ユーザーを登録しました"
       session[:user_id] = @user.id
       redirect_to("/users/#{@user.id}")
+    else
+      render("users/new")
     end
   end
   
@@ -63,13 +66,14 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to("/users/#{@user.id}")
     else
-      flash[:notice] = "ログインできません"
+      flash[:danger] = "ログインできません"
       redirect_to("/login")
     end
   end
   
   def logout
     session[:user_id] = nil
+    flash[:notice] = "ログアウトしました"
     redirect_to("/")
   end
   
