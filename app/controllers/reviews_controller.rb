@@ -7,9 +7,16 @@ class ReviewsController < ApplicationController
     @books = Book.where(isbn: params[:isbn])
     @book = @books.first   
     
-    if @books == nil
+    if @book != nil
+      if Review.find_by(book_id: @book.id) == nil
+        flash[:notice] = "他の書評はありません"
+        redirect_to("/books/search")
+      end
+    else if 
       flash[:notice] = "他の書評はありません"
       redirect_to("/books/search")
+    end
+      
     end
   end
   
