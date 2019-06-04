@@ -22,13 +22,13 @@
           <textarea name="content" class="review-content"><%= @review.content %></textarea>
           
           <div class="update-button">
-            <input type="submit" value="更新" button type="button" class="btn btn-info btn-sm" ></button>
+            <input type="submit" value="更新" button type="button" class="btn btn-info" ></button>
           </div>
         <% end %>
         
         <div class="destroy-button">
           <%=link_to("/reviews/#{@review.id}/destroy" ,{method: "post"}) do %>
-             <button type="button" class="btn btn-danger btn-sm" >削除</button>
+             <button type="button" class="btn btn-danger" >削除</button>
           <% end %>
       　</div>
         
